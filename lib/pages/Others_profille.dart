@@ -10,14 +10,13 @@ class Others_Profile_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
   final UserModel searchedUser;
-  final MessageModel messageModel;
 
-  const Others_Profile_Page(
-      {super.key,
-      required this.userModel,
-      required this.firebaseUser,
-      required this.searchedUser,
-      required this.messageModel});
+  const Others_Profile_Page({
+    super.key,
+    required this.userModel,
+    required this.firebaseUser,
+    required this.searchedUser,
+  });
 
   @override
   State<Others_Profile_Page> createState() => _Others_Profile_PageState();
@@ -42,7 +41,6 @@ class _Others_Profile_PageState extends State<Others_Profile_Page> {
               userModel: widget.userModel,
               firebaseUser: widget.firebaseUser,
               searchedUser: widget.searchedUser,
-              messageModel: widget.messageModel,
             ),
           ],
         ),

@@ -15,13 +15,12 @@ import '../models/UserModel.dart';
 class EditProfile_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
-  final MessageModel messageModel;
 
-  const EditProfile_Page(
-      {super.key,
-      required this.userModel,
-      required this.firebaseUser,
-      required this.messageModel});
+  const EditProfile_Page({
+    super.key,
+    required this.userModel,
+    required this.firebaseUser,
+  });
 
   @override
   State<EditProfile_Page> createState() => _EditProfile_PageState();
@@ -139,7 +138,6 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
           return Home_Page(
             userModel: widget.userModel,
             firebaseUser: widget.firebaseUser,
-            messageModel: widget.messageModel,
           );
         }),
       );

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:social_media/models/PostModel.dart';
 import 'package:social_media/pages/Create_Post.dart';
 import '../constants/Colors.dart';
-import '../models/MessageModel.dart';
 import '../models/UserModel.dart';
 import '../widgets/Custom_Drawer.dart';
 import '../widgets/noResultsFound.dart';
@@ -14,15 +13,12 @@ import 'Search_Page.dart';
 class Home_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
-  final MessageModel messageModel;
-
   // final PostModel postmodel;
 
   const Home_Page({
     super.key,
     required this.userModel,
     required this.firebaseUser,
-    required this.messageModel,
   });
 
   @override
@@ -46,10 +42,8 @@ class _Home_PageState extends State<Home_Page> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: ((context) {
                   return Search_Page(
-                    userModel: widget.userModel,
-                    firebaseUser: widget.firebaseUser,
-                    messageModel: widget.messageModel,
-                  );
+                      userModel: widget.userModel,
+                      firebaseUser: widget.firebaseUser);
                 })));
               },
               child: const Icon(

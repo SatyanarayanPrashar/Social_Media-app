@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/models/UserModel.dart';
+import 'package:social_media/widgets/drawer_Inbox.dart';
 
 import '../constants/Colors.dart';
 
@@ -66,10 +67,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
 
                 //
-                Drawer_Widget(
+                Drawer_Inbox_Widget(
                   iconImage: 'inbox.png',
                   isCollapsed: _isCollapsed,
-                  title: 'Messages',
+                  title: 'View all',
                   routeLink: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: ((context) {
@@ -79,6 +80,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       );
                     })));
                   },
+                  firebaseUser: widget.firebaseUser,
+                  userModel: widget.userModel,
                 ),
 
                 //

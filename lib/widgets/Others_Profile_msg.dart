@@ -17,14 +17,13 @@ class Others_Profile_msg extends StatefulWidget {
   final UserModel searchedUser;
   final UserModel userModel;
   final User firebaseUser;
-  final MessageModel messageModel;
 
-  const Others_Profile_msg(
-      {super.key,
-      required this.searchedUser,
-      required this.firebaseUser,
-      required this.userModel,
-      required this.messageModel});
+  const Others_Profile_msg({
+    super.key,
+    required this.searchedUser,
+    required this.firebaseUser,
+    required this.userModel,
+  });
 
   @override
   State<Others_Profile_msg> createState() => _Others_Profile_msgState();
@@ -59,7 +58,6 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
           widget.userModel.uid.toString(): true,
           widget.searchedUser.uid.toString(): true,
         },
-        activeon: widget.messageModel.createdon,
       );
 
       await FirebaseFirestore.instance

@@ -15,13 +15,12 @@ import '../models/MessageModel.dart';
 class Search_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
-  final MessageModel messageModel;
 
-  const Search_Page(
-      {super.key,
-      required this.userModel,
-      required this.firebaseUser,
-      required this.messageModel});
+  const Search_Page({
+    super.key,
+    required this.userModel,
+    required this.firebaseUser,
+  });
 
   @override
   State<Search_Page> createState() => _Search_PageState();
@@ -108,7 +107,6 @@ class _Search_PageState extends State<Search_Page> {
                               userModel: widget.userModel,
                               firebaseUser: widget.firebaseUser,
                               searchedUser: searchedUser,
-                              messageModel: widget.messageModel,
                             );
                           }));
                         },
