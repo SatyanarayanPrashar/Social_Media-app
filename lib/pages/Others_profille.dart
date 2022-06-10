@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/constants/Colors.dart';
 import 'package:social_media/models/UserModel.dart';
+import '../models/MessageModel.dart';
 import '../widgets/MyProfile_top.dart';
 import '../widgets/Others_Profile_msg.dart';
 
@@ -9,12 +10,14 @@ class Others_Profile_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
   final UserModel searchedUser;
+  final MessageModel messageModel;
 
   const Others_Profile_Page(
       {super.key,
       required this.userModel,
       required this.firebaseUser,
-      required this.searchedUser});
+      required this.searchedUser,
+      required this.messageModel});
 
   @override
   State<Others_Profile_Page> createState() => _Others_Profile_PageState();
@@ -39,6 +42,7 @@ class _Others_Profile_PageState extends State<Others_Profile_Page> {
               userModel: widget.userModel,
               firebaseUser: widget.firebaseUser,
               searchedUser: widget.searchedUser,
+              messageModel: widget.messageModel,
             ),
           ],
         ),

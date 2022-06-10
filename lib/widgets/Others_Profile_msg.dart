@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media/models/MessageModel.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/pages/Chatroom.dart';
 import 'package:social_media/pages/EditProfile_Page.dart';
@@ -16,12 +17,14 @@ class Others_Profile_msg extends StatefulWidget {
   final UserModel searchedUser;
   final UserModel userModel;
   final User firebaseUser;
+  final MessageModel messageModel;
 
   const Others_Profile_msg(
       {super.key,
       required this.searchedUser,
       required this.firebaseUser,
-      required this.userModel});
+      required this.userModel,
+      required this.messageModel});
 
   @override
   State<Others_Profile_msg> createState() => _Others_Profile_msgState();
@@ -49,11 +52,15 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
     } else {
       // Create a new one
 
-      ChatRoomModel newChatroom =
-          ChatRoomModel(chatroomid: uuid.v1(), lastMessage: "", participants: {
-        widget.userModel.uid.toString(): true,
-        widget.searchedUser.uid.toString(): true,
-      });
+      ChatRoomModel newChatroom = ChatRoomModel(
+        chatroomid: uuid.v1(),
+        lastMessage: "",
+        participants: {
+          widget.userModel.uid.toString(): true,
+          widget.searchedUser.uid.toString(): true,
+        },
+        activeon: widget.messageModel.createdon,
+      );
 
       await FirebaseFirestore.instance
           .collection("chatrooms")

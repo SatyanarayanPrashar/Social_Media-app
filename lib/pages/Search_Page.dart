@@ -10,13 +10,18 @@ import 'package:social_media/widgets/noResultsFound.dart';
 
 import '../constants/Colors.dart';
 import '../models/ChatRoomModel.dart';
+import '../models/MessageModel.dart';
 
 class Search_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
+  final MessageModel messageModel;
 
   const Search_Page(
-      {super.key, required this.userModel, required this.firebaseUser});
+      {super.key,
+      required this.userModel,
+      required this.firebaseUser,
+      required this.messageModel});
 
   @override
   State<Search_Page> createState() => _Search_PageState();
@@ -100,9 +105,11 @@ class _Search_PageState extends State<Search_Page> {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
                             return Others_Profile_Page(
-                                userModel: widget.userModel,
-                                firebaseUser: widget.firebaseUser,
-                                searchedUser: searchedUser);
+                              userModel: widget.userModel,
+                              firebaseUser: widget.firebaseUser,
+                              searchedUser: searchedUser,
+                              messageModel: widget.messageModel,
+                            );
                           }));
                         },
                         leading: CircleAvatar(
@@ -111,11 +118,13 @@ class _Search_PageState extends State<Search_Page> {
                         ),
                         title: Text(
                           searchedUser.username!,
-                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 17),
                         ),
                         subtitle: Text(
                           searchedUser.email!,
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12),
                         ),
                       );
                     } else {

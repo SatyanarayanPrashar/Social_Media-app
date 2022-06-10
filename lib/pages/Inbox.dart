@@ -34,6 +34,7 @@ class _Messages_pageState extends State<Messages_page> {
           stream: FirebaseFirestore.instance
               .collection("chatrooms")
               .where("participants.${widget.userModel.uid}", isEqualTo: true)
+              .orderBy("createdon")
               .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.active) {
@@ -83,7 +84,9 @@ class _Messages_pageState extends State<Messages_page> {
                               ),
                               title: Text(
                                 targetUser.username.toString(),
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                               ),
                               subtitle: (chatRoomModel.lastMessage.toString() !=
                                       "")

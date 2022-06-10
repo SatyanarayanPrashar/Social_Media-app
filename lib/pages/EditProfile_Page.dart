@@ -9,14 +9,19 @@ import 'package:image_picker/image_picker.dart';
 import 'package:social_media/pages/Home_Page.dart';
 import 'package:social_media/pages/Profile_Page.dart';
 import '../constants/Colors.dart';
+import '../models/MessageModel.dart';
 import '../models/UserModel.dart';
 
 class EditProfile_Page extends StatefulWidget {
   final UserModel userModel;
   final User firebaseUser;
+  final MessageModel messageModel;
 
   const EditProfile_Page(
-      {super.key, required this.userModel, required this.firebaseUser});
+      {super.key,
+      required this.userModel,
+      required this.firebaseUser,
+      required this.messageModel});
 
   @override
   State<EditProfile_Page> createState() => _EditProfile_PageState();
@@ -134,6 +139,7 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
           return Home_Page(
             userModel: widget.userModel,
             firebaseUser: widget.firebaseUser,
+            messageModel: widget.messageModel,
           );
         }),
       );
