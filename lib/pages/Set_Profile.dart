@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
 import '../constants/Colors.dart';
 import '../models/UserModel.dart';
@@ -104,6 +105,8 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
   }
 
   void uploadData() async {
+    UIHelper.showLoadingDialog(context, "Uploading..");
+
     UploadTask uploadTask = FirebaseStorage.instance
         .ref("profilepictures")
         .child(widget.userModel.uid.toString())

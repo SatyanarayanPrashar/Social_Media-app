@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
 import '../constants/Colors.dart';
 import '../models/UserModel.dart';
@@ -33,6 +34,8 @@ class _Login_pageState extends State<Login_page> {
 
   void logIn(String email, String password) async {
     UserCredential? credential;
+
+    UIHelper.showLoadingDialog(context, "Logging In..");
 
     try {
       credential = await FirebaseAuth.instance

@@ -43,7 +43,7 @@ class _MyProfileState extends State<MyProfile> {
             ),
             //
             Padding(
-              padding: const EdgeInsets.only(left: 18.0),
+              padding: const EdgeInsets.only(left: 18.0, top: 10, bottom: 7),
               child: Text(
                 widget.userModel.username.toString(),
                 style: const TextStyle(color: Colors.white, fontSize: 17.0),
@@ -53,12 +53,12 @@ class _MyProfileState extends State<MyProfile> {
               padding: const EdgeInsets.only(left: 18.0),
               child: Text(
                 widget.userModel.email.toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 12.0),
+                style: const TextStyle(color: Colors.white, fontSize: 15.0),
               ),
             ),
             Padding(
               padding:
-                  const EdgeInsets.only(left: 18.0, right: 18.0, top: 12.0),
+                  const EdgeInsets.only(left: 18.0, right: 18.0, top: 10.0),
               child: Text(
                 widget.userModel.bio.toString(),
                 style: const TextStyle(color: Colors.white, fontSize: 17.0),

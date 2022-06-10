@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:social_media/constants/Colors.dart';
 import 'package:social_media/main.dart';
 import 'package:social_media/models/PostModel.dart';
+import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
 
 import '../models/UserModel.dart';
@@ -97,14 +98,13 @@ class _Create_PostState extends State<Create_Post> {
   }
 
   void createPost() async {
+    UIHelper.showLoadingDialog(context, "Uploading..");
+
     String imgName =
         widget.userModel.username! + DateTime.now().toString() + uuid.v1();
 
-    UploadTask uploadTask = FirebaseStorage.instance
-        // .ref("post" + uuid.v1())
-        .ref(imgName)
-        .child(widget.userModel.uid.toString())
-        .putFile(imageFile!);
+    UploadTask uploadTask =
+        FirebaseStorage.instance.ref(imgName).putFile(imageFile!);
 
     TaskSnapshot snapshot = await uploadTask;
 

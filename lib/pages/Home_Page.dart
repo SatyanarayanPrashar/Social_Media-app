@@ -79,7 +79,7 @@ class _Home_PageState extends State<Home_Page> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             if (snapshot.hasData) {
-//
+              //
               QuerySnapshot postSnapshot = snapshot.data as QuerySnapshot;
 
               return ListView.builder(
@@ -88,10 +88,10 @@ class _Home_PageState extends State<Home_Page> {
                     PostModel currentPost = PostModel.fromMap(
                         postSnapshot.docs[index].data()
                             as Map<String, dynamic>);
-//
+                    //
                     return Column(
                       children: [
-//
+                        //
                         ListTile(
                           leading: CircleAvatar(
                             backgroundColor: ColorConstants.dark_OnWIdget_Color,
@@ -107,7 +107,7 @@ class _Home_PageState extends State<Home_Page> {
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
-//
+                        //
                         Container(
                           height: size.width,
                           width: size.width,
@@ -117,7 +117,7 @@ class _Home_PageState extends State<Home_Page> {
                                       currentPost.imageadded.toString()),
                                   fit: BoxFit.contain)),
                         ),
-//
+                        //
                         Align(
                           alignment: Alignment.topLeft,
                           child: Padding(
@@ -134,11 +134,11 @@ class _Home_PageState extends State<Home_Page> {
                         const Divider(
                           color: Colors.white,
                         )
-//
+                        //
                       ],
                     );
                   });
-//
+              //
             } else if (snapshot.hasError) {
               return const Center(
                 child: NoResultsFound(title: "An error occured :("),

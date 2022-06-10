@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:social_media/models/UserModel.dart';
 
 import '../constants/Colors.dart';
-import '../pages/Posts.dart';
+
 import '../pages/Inbox.dart';
 import 'drawer_bottom_profile.dart';
 import 'drawer_widgets.dart';
@@ -66,19 +66,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
 
                 //
-                //
-                Drawer_Widget(
-                  iconImage: 'home.png',
-                  isCollapsed: _isCollapsed,
-                  title: 'Home',
-                  routeLink: () {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: ((context) {
-                    //   return ;
-                    // })));
-                  },
-                ),
-                //
                 Drawer_Widget(
                   iconImage: 'inbox.png',
                   isCollapsed: _isCollapsed,
@@ -94,40 +81,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   },
                 ),
 
-                //
-                Drawer_Widget(
-                  iconImage: 'saves.png',
-                  isCollapsed: _isCollapsed,
-                  title: 'Saves',
-                  routeLink: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) {
-                      return Saves_page();
-                    })));
-                  },
-                ),
-                //
-                //
-                Divider(
-                  color: ColorConstants.dark_Text_Color,
-                ),
-
-                //
-                //
-                // const SizedBox(height: 40),
-                Drawer_Widget(
-                  iconImage: 'settings.png',
-                  isCollapsed: _isCollapsed,
-                  title: 'Settings',
-                  routeLink: () {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: ((context) {
-                    //   return ;
-                    // })));
-                  },
-                ),
-
-                //
                 //
                 Divider(
                   color: ColorConstants.dark_Text_Color,

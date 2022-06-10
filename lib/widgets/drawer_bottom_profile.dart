@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/pages/Login_Page.dart';
 import 'package:social_media/pages/Profile_Page.dart';
@@ -23,9 +24,10 @@ class Drawer_bottom_profile extends StatefulWidget {
 class _Drawer_bottom_profileState extends State<Drawer_bottom_profile> {
   void logOut() async {
     await FirebaseAuth.instance.signOut();
-    Navigator.popUntil(context, (route) => route.isFirst);
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Login_page()));
+    UIHelper.showAlerDialog(context, "Log out", "Are you sure?");
+    // Navigator.popUntil(context, (route) => route.isFirst);
+    // Navigator.pushReplacement(
+    //     context, MaterialPageRoute(builder: (context) => Login_page()));
   }
 
   @override

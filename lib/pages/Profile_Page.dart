@@ -60,9 +60,7 @@ class _Profile_PageState extends State<Profile_Page> {
 
                           // return Text(currentPost.caption.toString());
                           return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              //
                               //
                               ListTile(
                                 leading: CircleAvatar(
@@ -72,7 +70,7 @@ class _Profile_PageState extends State<Profile_Page> {
                                       currentPost.userProfilePic.toString()),
                                 ),
                                 title: Text(
-                                  widget.userModel.username.toString(),
+                                  currentPost.createdBy.toString(),
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 subtitle: Text(
@@ -93,11 +91,19 @@ class _Profile_PageState extends State<Profile_Page> {
                               //
                               Align(
                                 alignment: Alignment.topLeft,
-                                child: Text(
-                                  currentPost.caption.toString(),
-                                  overflow: TextOverflow.clip,
-                                  style: const TextStyle(color: Colors.white),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(17.0),
+                                  child: Text(
+                                    currentPost.caption.toString(),
+                                    overflow: TextOverflow.clip,
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                  ),
                                 ),
+                              ),
+
+                              const Divider(
+                                color: Colors.white,
                               )
                               //
                             ],
