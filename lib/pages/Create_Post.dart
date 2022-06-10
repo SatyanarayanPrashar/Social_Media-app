@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:social_media/constants/Colors.dart';
+import 'package:social_media/main.dart';
 import 'package:social_media/models/PostModel.dart';
 import 'package:social_media/pages/Home_Page.dart';
 
@@ -106,24 +108,33 @@ class _Create_PostState extends State<Create_Post> {
     String? caption = captionController.text.trim();
 
     PostModel newPost = PostModel(
-        userUid: widget.userModel.uid,
+        postid: uuid.v1(),
+        createdBy: widget.userModel.username,
         userProfilePic: widget.userModel.profilepic,
         caption: caption,
         imageadded: "",
         createdon: DateTime.now());
 
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(widget.userModel.uid)
+        .collection("posts")
+        .doc(newPost.postid)
+        .set(newPost.toMap());
+
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(widget.userModel.uid)
+        .set(widget.userModel.toMap());
+
+    log("new post created for user");
+
     await FirebaseFirestore.instance
         .collection("posts")
         .doc()
-        .set(newPost.toMap())
-        .then((value) {
-      print("New Post Created");
-      Navigator.pop(context);
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return Home_Page(
-            userModel: widget.userModel, firebaseUser: widget.firebaseUser);
-      }));
-    });
+        .set(newPost.toMap());
+
+    log("new post created for all");
   }
 
   @override
@@ -199,6 +210,14 @@ class _Create_PostState extends State<Create_Post> {
                     onPressed: () {
                       checkValues();
                       // createPost();
+                      Navigator.pop(context);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Home_Page(
+                          userModel: widget.userModel,
+                          firebaseUser: widget.firebaseUser,
+                        );
+                      }));
                     },
                     child: Text("okay"))
               ],

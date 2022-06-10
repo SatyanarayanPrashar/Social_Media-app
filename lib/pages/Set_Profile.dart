@@ -206,7 +206,7 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
                       controller: bioController,
                       style: const TextStyle(color: Colors.white),
                       maxLength: 150,
-                      maxLines: null,
+                      maxLines: 4,
                       decoration: const InputDecoration(
                         hintText: "Bio",
                         hintStyle:

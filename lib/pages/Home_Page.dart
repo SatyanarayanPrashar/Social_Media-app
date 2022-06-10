@@ -7,7 +7,7 @@ import 'package:social_media/pages/Create_Post.dart';
 import '../constants/Colors.dart';
 import '../models/UserModel.dart';
 import '../widgets/Custom_Drawer.dart';
-import '../widgets/Home_Pg_Post.dart';
+import '../widgets/noResultsFound.dart';
 import 'Search_Page.dart';
 
 class Home_Page extends StatefulWidget {
@@ -15,8 +15,11 @@ class Home_Page extends StatefulWidget {
   final User firebaseUser;
   // final PostModel postmodel;
 
-  const Home_Page(
-      {super.key, required this.userModel, required this.firebaseUser});
+  const Home_Page({
+    super.key,
+    required this.userModel,
+    required this.firebaseUser,
+  });
 
   @override
   State<Home_Page> createState() => _Home_PageState();
@@ -25,6 +28,8 @@ class Home_Page extends StatefulWidget {
 class _Home_PageState extends State<Home_Page> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: ColorConstants.dark_BG_Color,
@@ -66,11 +71,86 @@ class _Home_PageState extends State<Home_Page> {
       ),
 //
 //
-      // body: SafeArea(
-      //   child: StreamBuilder(
-      //     stream: FirebaseFirestore.instance.collection("posts").doc().collection("caption").,
-      //   )
-      // ),
+      body: SafeArea(
+          child: StreamBuilder(
+        stream: FirebaseFirestore.instance
+            .collection("posts")
+            .orderBy("createdon", descending: true)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            if (snapshot.hasData) {
+//
+              QuerySnapshot postSnapshot = snapshot.data as QuerySnapshot;
+
+              return ListView.builder(
+                  itemCount: postSnapshot.docs.length,
+                  itemBuilder: (context, index) {
+                    PostModel currentPost = PostModel.fromMap(
+                        postSnapshot.docs[index].data()
+                            as Map<String, dynamic>);
+
+                    // return Text(currentPost.caption.toString());
+                    return Column(
+                      children: [
+//
+                        ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ColorConstants.dark_OnWIdget_Color,
+                            backgroundImage: NetworkImage(
+                                currentPost.userProfilePic.toString()),
+                          ),
+                          title: Text(
+                            currentPost.createdBy.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          subtitle: Text(
+                            currentPost.createdon.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+//
+                        Container(
+                          height: size.width,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      currentPost.imageadded.toString()),
+                                  fit: BoxFit.contain)),
+                        ),
+//
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            currentPost.caption.toString(),
+                            overflow: TextOverflow.clip,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+
+                        const Divider(
+                          color: Colors.white,
+                        )
+//
+                      ],
+                    );
+                  });
+//
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: NoResultsFound(title: "An error occured :("),
+              );
+            } else {
+              return const NoResultsFound(title: "Say Hi! to your friend");
+            }
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      )),
     );
   }
 }
