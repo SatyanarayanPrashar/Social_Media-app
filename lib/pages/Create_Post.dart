@@ -42,7 +42,7 @@ class _Create_PostState extends State<Create_Post> {
     CroppedFile? croppedImage = await ImageCropper().cropImage(
         sourcePath: file.path,
         aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
-        compressQuality: 10);
+        compressQuality: 20);
 
     if (croppedImage != null) {
       setState(() {
@@ -85,26 +85,31 @@ class _Create_PostState extends State<Create_Post> {
   void checkValues() {
     String caption = captionController.text.trim();
 
-    if (caption == "" && imageFile == null) {
+    if (imageFile == null) {
       const snackBar = SnackBar(
-        content: Text("Please create a post!"),
+        content: Text("Please choose a picture!"),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-    // else
-    // if (imageFile == null) {
-    //   const snackBar = SnackBar(
-    //     content: Text("Please choose a picture!"),
-    //   );
-    //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    // }
-    else {
+    } else {
       // Create Post
       createPost();
     }
   }
 
   void createPost() async {
+    String imgName =
+        widget.userModel.username! + DateTime.now().toString() + uuid.v1();
+
+    UploadTask uploadTask = FirebaseStorage.instance
+        // .ref("post" + uuid.v1())
+        .ref(imgName)
+        .child(widget.userModel.uid.toString())
+        .putFile(imageFile!);
+
+    TaskSnapshot snapshot = await uploadTask;
+
+    String? imageaddedURL = await snapshot.ref.getDownloadURL();
+
     String? caption = captionController.text.trim();
 
     PostModel newPost = PostModel(
@@ -112,7 +117,7 @@ class _Create_PostState extends State<Create_Post> {
         createdBy: widget.userModel.username,
         userProfilePic: widget.userModel.profilepic,
         caption: caption,
-        imageadded: "",
+        imageadded: imageaddedURL,
         createdon: DateTime.now());
 
     FirebaseFirestore.instance
@@ -132,9 +137,17 @@ class _Create_PostState extends State<Create_Post> {
     await FirebaseFirestore.instance
         .collection("posts")
         .doc()
-        .set(newPost.toMap());
-
-    log("new post created for all");
+        .set(newPost.toMap())
+        .then((value) {
+      log("new post created for all");
+      Navigator.pop(context);
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return Home_Page(
+          userModel: widget.userModel,
+          firebaseUser: widget.firebaseUser,
+        );
+      }));
+    });
   }
 
   @override
@@ -150,6 +163,14 @@ class _Create_PostState extends State<Create_Post> {
             style:
                 TextStyle(fontSize: 20, color: ColorConstants.dark_Text_Color),
           ),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            checkValues();
+          },
+          backgroundColor: ColorConstants.dark_OnWIdget_Color,
+          icon: Icon(Icons.done),
+          label: Text("done"),
         ),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -206,20 +227,6 @@ class _Create_PostState extends State<Create_Post> {
                     ),
                   )),
                 ),
-                TextButton(
-                    onPressed: () {
-                      checkValues();
-                      // createPost();
-                      Navigator.pop(context);
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Home_Page(
-                          userModel: widget.userModel,
-                          firebaseUser: widget.firebaseUser,
-                        );
-                      }));
-                    },
-                    child: Text("okay"))
               ],
             ),
           ),

@@ -36,7 +36,6 @@ class _Home_PageState extends State<Home_Page> {
 //
       appBar: AppBar(
         title: Text("Social Media"),
-        elevation: 2,
         backgroundColor: ColorConstants.dark_BG_Color,
         actions: [
           CupertinoButton(
@@ -89,8 +88,7 @@ class _Home_PageState extends State<Home_Page> {
                     PostModel currentPost = PostModel.fromMap(
                         postSnapshot.docs[index].data()
                             as Map<String, dynamic>);
-
-                    // return Text(currentPost.caption.toString());
+//
                     return Column(
                       children: [
 //
@@ -122,10 +120,14 @@ class _Home_PageState extends State<Home_Page> {
 //
                         Align(
                           alignment: Alignment.topLeft,
-                          child: Text(
-                            currentPost.caption.toString(),
-                            overflow: TextOverflow.clip,
-                            style: const TextStyle(color: Colors.white),
+                          child: Padding(
+                            padding: const EdgeInsets.all(17.0),
+                            child: Text(
+                              currentPost.caption.toString(),
+                              overflow: TextOverflow.clip,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 15),
+                            ),
                           ),
                         ),
 
