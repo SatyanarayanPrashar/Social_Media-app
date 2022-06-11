@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/models/PostModel.dart';
 import 'package:social_media/pages/Create_Post.dart';
+import 'package:social_media/pages/Others_profille.dart';
 import '../constants/Colors.dart';
 import '../models/UserModel.dart';
 import '../widgets/Custom_Drawer.dart';
@@ -35,7 +36,7 @@ class _Home_PageState extends State<Home_Page> {
       backgroundColor: ColorConstants.dark_BG_Color,
 //
       appBar: AppBar(
-        title: Text("Social Media"),
+        title: const Text("Social Media"),
         backgroundColor: ColorConstants.dark_BG_Color,
         actions: [
           CupertinoButton(
@@ -65,8 +66,8 @@ class _Home_PageState extends State<Home_Page> {
           }));
         },
         backgroundColor: ColorConstants.dark_OnWIdget_Color,
-        label: Text("Create"),
-        icon: Icon(Icons.add),
+        label: const Text("Create"),
+        icon: const Icon(Icons.add),
       ),
 //
 //
@@ -100,11 +101,11 @@ class _Home_PageState extends State<Home_Page> {
                           ),
                           title: Text(
                             currentPost.createdBy.toString(),
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                           subtitle: Text(
                             currentPost.createdon.toString(),
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                         //
