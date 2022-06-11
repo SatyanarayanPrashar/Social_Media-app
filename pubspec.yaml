@@ -41,10 +41,21 @@ dependencies:
   image_cropper: ^2.0.3
   firebase_storage: ^10.2.17
   uuid: ^3.0.6
+  flutter_native_splash: ^2.2.3
+  flutter_launcher_icons: ^0.9.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#1f2226"
+  image: assets/splash/splash.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

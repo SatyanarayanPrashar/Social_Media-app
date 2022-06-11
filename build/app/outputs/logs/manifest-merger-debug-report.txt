@@ -53,6 +53,7 @@ MERGED from [:cloud_firestore] D:\flutter\social_media\build\cloud_firestore\int
 MERGED from [:firebase_core] D:\flutter\social_media\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:image_picker_android] D:\flutter\social_media\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] D:\flutter\social_media\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_native_splash] D:\flutter\social_media\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:image_cropper] D:\flutter\social_media\build\image_cropper\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\SATYA\.gradle\caches\transforms-3\dbfa7ebedc55883fddc54b7b8a0244a3\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\SATYA\.gradle\caches\transforms-3\65d7f496e0c0fefec8fa7195c7c8a034\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
@@ -140,6 +141,8 @@ MERGED from [:image_picker_android] D:\flutter\social_media\build\image_picker_a
 MERGED from [:image_picker_android] D:\flutter\social_media\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] D:\flutter\social_media\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] D:\flutter\social_media\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_native_splash] D:\flutter\social_media\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_native_splash] D:\flutter\social_media\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:image_cropper] D:\flutter\social_media\build\image_cropper\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:image_cropper] D:\flutter\social_media\build\image_cropper\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\SATYA\.gradle\caches\transforms-3\dbfa7ebedc55883fddc54b7b8a0244a3\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
