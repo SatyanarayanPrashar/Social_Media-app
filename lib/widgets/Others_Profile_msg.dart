@@ -156,7 +156,10 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
             ),
             const Divider(
               color: Colors.white,
-            )
+            ),
+//
+
+//
           ],
         ),
       ),

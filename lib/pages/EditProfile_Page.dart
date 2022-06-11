@@ -6,10 +6,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
-import 'package:social_media/pages/Profile_Page.dart';
+
 import '../constants/Colors.dart';
-import '../models/MessageModel.dart';
+
 import '../models/UserModel.dart';
 
 class EditProfile_Page extends StatefulWidget {
@@ -87,6 +88,8 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
   void checkValues() {
     String bio = bioController.text.trim();
     String username = usernameController.text.trim();
+
+    UIHelper.showLoadingDialog(context, "Setting up..");
 
     if (username == "") {
       const snackBar = SnackBar(
