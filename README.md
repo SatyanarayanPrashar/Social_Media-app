@@ -43,5 +43,5 @@ Inbox         &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp
   - flutter_native_splash: ^2.2.3
   - flutter_launcher_icons: ^0.9.3
 
-Made by Satyanarayan Prashar
+Made with ❤ by Satyanarayan Prashar
 
