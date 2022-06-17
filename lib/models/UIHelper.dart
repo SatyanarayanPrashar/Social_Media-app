@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/constants/Colors.dart';
-import 'package:social_media/pages/Login_Page.dart';
 
 class UIHelper {
   static void showLoadingDialog(BuildContext context, String title) {
