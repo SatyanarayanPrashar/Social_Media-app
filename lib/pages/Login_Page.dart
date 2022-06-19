@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
-import '../constants/Colors.dart';
 import '../models/UserModel.dart';
 import 'Signup_Page.dart';
 
@@ -65,7 +64,6 @@ class _Login_pageState extends State<Login_page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       body: SafeArea(
         child: SingleChildScrollView(
             child: Column(
@@ -76,7 +74,7 @@ class _Login_pageState extends State<Login_page> {
               width: size.width,
 //
               decoration: BoxDecoration(
-                  color: ColorConstants.dark_widget_Color,
+                  color: Color.fromARGB(255, 248, 183, 123),
                   image: const DecorationImage(
                     image: AssetImage("assets/images/auth_bg_Col.png"),
                     fit: BoxFit.cover,
@@ -92,18 +90,18 @@ class _Login_pageState extends State<Login_page> {
               height: 47.0,
               width: size.width * 0.87,
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  border: Border.all(color: Colors.white.withOpacity(0.3)),
-                  color: ColorConstants.dark_OnWIdget_Color.withOpacity(0.5)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                border: Border.all(color: Colors.black.withOpacity(0.3)),
+                color: Colors.grey.withOpacity(0.5),
+              ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: TextField(
-                  style: TextStyle(color: Colors.white),
                   controller: emailController,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: "Email",
-                    hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                    hintStyle: TextStyle(fontSize: 14.0),
                   ),
                 ),
               ),
@@ -115,19 +113,19 @@ class _Login_pageState extends State<Login_page> {
               height: 47.0,
               width: size.width * 0.87,
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  border: Border.all(color: Colors.white.withOpacity(0.3)),
-                  color: ColorConstants.dark_OnWIdget_Color.withOpacity(0.5)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                border: Border.all(color: Colors.black.withOpacity(0.3)),
+                color: Colors.grey.withOpacity(0.5),
+              ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: TextField(
-                  style: TextStyle(color: Colors.white),
                   obscureText: true,
                   controller: passwordController,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: "Password",
-                    hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                    hintStyle: TextStyle(fontSize: 14.0),
                   ),
                 ),
               ),
@@ -150,8 +148,7 @@ class _Login_pageState extends State<Login_page> {
                   },
                   child: const Align(
                     alignment: Alignment.center,
-                    child: Text("Sign Up!",
-                        style: TextStyle(fontSize: 15, color: Colors.white)),
+                    child: Text("Sign Up!", style: TextStyle(fontSize: 15)),
                   ),
                 ),
               ],
@@ -170,15 +167,14 @@ class _Login_pageState extends State<Login_page> {
                   height: 45,
                   width: 170,
                   decoration: BoxDecoration(
-                      color: ColorConstants.dark_OnWIdget_Color,
+                      color: Colors.blue,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(20),
                       )),
                   child: Center(
                       child: Text(
                     "Login!",
-                    style: TextStyle(
-                        color: ColorConstants.dark_Text_Color, fontSize: 17),
+                    style: TextStyle(fontSize: 17),
                   )),
                 ),
               ),

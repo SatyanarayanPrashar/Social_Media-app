@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:social_media/constants/Colors.dart';
 import 'package:social_media/models/UserModel.dart';
-import '../models/MessageModel.dart';
 import '../models/PostModel.dart';
-import '../widgets/MyProfile_top.dart';
 import '../widgets/Others_Profile_msg.dart';
 import '../widgets/noResultsFound.dart';
 
@@ -31,10 +28,8 @@ class _Others_Profile_PageState extends State<Others_Profile_Page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: ColorConstants.dark_widget_Color,
         title: Text("Profile"),
       ),
       body: SafeArea(
@@ -74,18 +69,15 @@ class _Others_Profile_PageState extends State<Others_Profile_Page> {
                                 //
                                 ListTile(
                                   leading: CircleAvatar(
-                                    backgroundColor:
-                                        ColorConstants.dark_OnWIdget_Color,
+                                    backgroundColor: Colors.grey,
                                     backgroundImage: NetworkImage(
                                         currentPost.userProfilePic.toString()),
                                   ),
                                   title: Text(
                                     currentPost.createdBy.toString(),
-                                    style: TextStyle(color: Colors.white),
                                   ),
                                   subtitle: Text(
                                     currentPost.createdon.toString(),
-                                    style: TextStyle(color: Colors.white),
                                   ),
                                 ),
                                 //
@@ -107,15 +99,12 @@ class _Others_Profile_PageState extends State<Others_Profile_Page> {
                                     child: Text(
                                       currentPost.caption.toString(),
                                       overflow: TextOverflow.clip,
-                                      style: const TextStyle(
-                                          color: Colors.white, fontSize: 15),
+                                      style: const TextStyle(fontSize: 15),
                                     ),
                                   ),
                                 ),
 
-                                const Divider(
-                                  color: Colors.white,
-                                )
+                                const Divider()
                                 //
                               ],
                             );

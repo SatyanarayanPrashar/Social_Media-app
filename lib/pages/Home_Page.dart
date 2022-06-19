@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/models/PostModel.dart';
 import 'package:social_media/pages/Create_Post.dart';
-import 'package:social_media/pages/Others_profille.dart';
-import '../constants/Colors.dart';
 import '../models/UserModel.dart';
 import '../widgets/Custom_Drawer.dart';
 import '../widgets/noResultsFound.dart';
@@ -33,11 +31,9 @@ class _Home_PageState extends State<Home_Page> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: ColorConstants.dark_BG_Color,
 //
       appBar: AppBar(
         title: const Text("Social Media"),
-        backgroundColor: ColorConstants.dark_BG_Color,
         actions: [
           CupertinoButton(
               onPressed: () {
@@ -49,7 +45,7 @@ class _Home_PageState extends State<Home_Page> {
               },
               child: const Icon(
                 Icons.search,
-                color: Colors.white,
+                // color: Colors.white,
                 size: 27,
               )),
           const SizedBox(width: 15)
@@ -65,7 +61,7 @@ class _Home_PageState extends State<Home_Page> {
                 userModel: widget.userModel, firebaseUser: widget.firebaseUser);
           }));
         },
-        backgroundColor: ColorConstants.dark_OnWIdget_Color,
+        // backgroundColor: ColorConstants.dark_OnWIdget_Color,
         label: const Text("Create"),
         icon: const Icon(Icons.add),
       ),
@@ -95,17 +91,15 @@ class _Home_PageState extends State<Home_Page> {
                         //
                         ListTile(
                           leading: CircleAvatar(
-                            backgroundColor: ColorConstants.dark_OnWIdget_Color,
+                            backgroundColor: Colors.grey,
                             backgroundImage: NetworkImage(
                                 currentPost.userProfilePic.toString()),
                           ),
                           title: Text(
                             currentPost.createdBy.toString(),
-                            style: const TextStyle(color: Colors.white),
                           ),
                           subtitle: Text(
                             currentPost.createdon.toString(),
-                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                         //
@@ -126,15 +120,12 @@ class _Home_PageState extends State<Home_Page> {
                             child: Text(
                               currentPost.caption.toString(),
                               overflow: TextOverflow.clip,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 15),
+                              style: const TextStyle(fontSize: 15),
                             ),
                           ),
                         ),
 
-                        const Divider(
-                          color: Colors.white,
-                        )
+                        const Divider()
                         //
                       ],
                     );

@@ -8,7 +8,6 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
-import '../constants/Colors.dart';
 import '../models/UserModel.dart';
 
 class Set_Profile_Page extends StatefulWidget {
@@ -147,10 +146,8 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: ColorConstants.dark_widget_Color,
         title: const Text("Profile"),
       ),
       body: SingleChildScrollView(
@@ -167,7 +164,7 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
                       showPhotoOptions();
                     },
                     child: CircleAvatar(
-                      backgroundColor: const Color.fromARGB(255, 155, 231, 157),
+                      backgroundColor: Colors.grey,
                       radius: 60,
                       backgroundImage:
                           (imageFile != null) ? FileImage(imageFile!) : null,
@@ -183,25 +180,23 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
 
                   Container(
                     margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                    color: ColorConstants.dark_widget_Color,
+                    color: Colors.grey,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                     child: Flexible(
                         child: TextField(
                       controller: usernameController,
-                      style: const TextStyle(color: Colors.white),
                       maxLines: null,
                       decoration: const InputDecoration(
                         hintText: "Username",
-                        hintStyle:
-                            TextStyle(fontSize: 14.0, color: Colors.white),
+                        hintStyle: TextStyle(fontSize: 14.0),
                         border: InputBorder.none,
                       ),
                     )),
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                    color: ColorConstants.dark_widget_Color,
+                    color: Colors.grey,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                     child: Flexible(
@@ -212,8 +207,7 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
                       maxLines: 4,
                       decoration: const InputDecoration(
                         hintText: "Bio",
-                        hintStyle:
-                            TextStyle(fontSize: 14.0, color: Colors.white),
+                        hintStyle: TextStyle(fontSize: 14.0),
                         border: InputBorder.none,
                       ),
                     )),
@@ -228,23 +222,18 @@ class _Set_Profile_PageState extends State<Set_Profile_Page> {
                       height: 45,
                       width: size.width,
                       decoration: BoxDecoration(
-                          color: ColorConstants.dark_OnWIdget_Color
-                              .withOpacity(0.4),
+                          color: Colors.blue.withOpacity(0.4),
                           borderRadius: const BorderRadius.all(
                             Radius.circular(20),
                           )),
                       child: Center(
                           child: Text(
-                        "Save Changes",
-                        style: TextStyle(
-                            color: ColorConstants.dark_Text_Color,
-                            fontSize: 17),
+                        "Save",
+                        style: TextStyle(fontSize: 17),
                       )),
                     ),
                   ),
-                  const Divider(
-                    color: Colors.white,
-                  )
+                  const Divider()
                 ],
               ),
             )

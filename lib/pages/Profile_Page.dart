@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:social_media/constants/Colors.dart';
 import 'package:social_media/models/PostModel.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/widgets/noResultsFound.dart';
@@ -24,10 +23,8 @@ class _Profile_PageState extends State<Profile_Page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: ColorConstants.dark_widget_Color,
         title: Text("Profile"),
       ),
       body: SafeArea(
@@ -64,18 +61,15 @@ class _Profile_PageState extends State<Profile_Page> {
                               //
                               ListTile(
                                 leading: CircleAvatar(
-                                  backgroundColor:
-                                      ColorConstants.dark_OnWIdget_Color,
+                                  backgroundColor: Colors.grey,
                                   backgroundImage: NetworkImage(
                                       currentPost.userProfilePic.toString()),
                                 ),
                                 title: Text(
                                   currentPost.createdBy.toString(),
-                                  style: TextStyle(color: Colors.white),
                                 ),
                                 subtitle: Text(
                                   currentPost.createdon.toString(),
-                                  style: TextStyle(color: Colors.white),
                                 ),
                               ),
                               //
@@ -127,10 +121,7 @@ class _Profile_PageState extends State<Profile_Page> {
             ),
           ),
         ],
-      )
-          // ],
-          ),
+      )),
     );
-    // );
   }
 }

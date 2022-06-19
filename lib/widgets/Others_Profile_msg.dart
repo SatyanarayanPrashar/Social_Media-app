@@ -1,15 +1,8 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:social_media/models/MessageModel.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/pages/Chatroom.dart';
-import 'package:social_media/pages/EditProfile_Page.dart';
-
-import '../constants/Colors.dart';
 import '../main.dart';
 import '../models/ChatRoomModel.dart';
 
@@ -66,8 +59,6 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
           .set(newChatroom.toMap());
 
       chatRoom = newChatroom;
-
-      log("New chatRoom created!");
     }
 
     return chatRoom;
@@ -90,7 +81,7 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
               child: Align(
                 alignment: Alignment.center,
                 child: CircleAvatar(
-                  backgroundColor: ColorConstants.dark_widget_Color,
+                  backgroundColor: Colors.grey,
                   backgroundImage:
                       NetworkImage(widget.searchedUser.profilepic.toString()),
                   radius: 50,
@@ -102,14 +93,14 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
               padding: const EdgeInsets.only(left: 18.0),
               child: Text(
                 widget.searchedUser.username.toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 17.0),
+                style: const TextStyle(fontSize: 17.0),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 18.0),
               child: Text(
                 widget.searchedUser.email.toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 12.0),
+                style: const TextStyle(fontSize: 12.0),
               ),
             ),
             Padding(
@@ -117,7 +108,7 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
                   const EdgeInsets.only(left: 18.0, right: 18.0, top: 12.0),
               child: Text(
                 widget.searchedUser.bio.toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 17.0),
+                style: const TextStyle(fontSize: 17.0),
               ),
             ),
             //
@@ -142,21 +133,19 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
                 height: 45,
                 width: size.width,
                 decoration: BoxDecoration(
-                    color: ColorConstants.dark_OnWIdget_Color.withOpacity(0.4),
+                    color: Colors.blue.withOpacity(0.4),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(20),
                     )),
                 child: Center(
-                    child: Text(
-                  "Message",
-                  style: TextStyle(
-                      color: ColorConstants.dark_Text_Color, fontSize: 17),
-                )),
+                  child: Text(
+                    "Message",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ),
               ),
             ),
-            const Divider(
-              color: Colors.white,
-            ),
+            const Divider(),
 //
 
 //

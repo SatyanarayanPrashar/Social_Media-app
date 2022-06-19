@@ -2,9 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/widgets/drawer_Inbox.dart';
-
-import '../constants/Colors.dart';
-
 import '../pages/Inbox.dart';
 import 'drawer_bottom_profile.dart';
 import 'drawer_widgets.dart';
@@ -27,26 +24,26 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
-        child: AnimatedContainer(
-      curve: Curves.easeInOutCubic,
-      duration: const Duration(milliseconds: 500),
+      child: AnimatedContainer(
+        curve: Curves.easeInOutCubic,
+        duration: const Duration(milliseconds: 500),
 //
-      width: _isCollapsed ? 250 : 70,
-      // height: size.height * 0.8,
+        width: _isCollapsed ? 250 : 70,
+        // height: size.height * 0.8,
 //
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.only(
-          bottomRight: Radius.circular(10),
-          topRight: Radius.circular(10),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            bottomRight: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          color: Colors.grey,
         ),
-        color: ColorConstants.dark_widget_Color,
-      ),
 //
 //
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: SingleChildScrollView(
-          child: Column(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: SingleChildScrollView(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -63,8 +60,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 //
                 //
                 Divider(
-                  color: ColorConstants.dark_Text_Color,
-                ),
+                    // color: ColorConstants.dark_Text_Color,
+                    ),
 
                 //
                 Drawer_Inbox_Widget(
@@ -72,13 +69,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   isCollapsed: _isCollapsed,
                   title: 'View all',
                   routeLink: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) {
-                      return Messages_page(
-                        firebaseUser: widget.firebaseUser,
-                        userModel: widget.userModel,
-                      );
-                    })));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) {
+                          return Messages_page(
+                            firebaseUser: widget.firebaseUser,
+                            userModel: widget.userModel,
+                          );
+                        }),
+                      ),
+                    );
                   },
                   firebaseUser: widget.firebaseUser,
                   userModel: widget.userModel,
@@ -86,8 +87,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
                 //
                 Divider(
-                  color: ColorConstants.dark_Text_Color,
-                ),
+                    // color: ColorConstants.dark_Text_Color,
+                    ),
 
                 //
                 //
@@ -104,28 +105,31 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ? Alignment.bottomRight
                       : Alignment.bottomCenter,
                   child: IconButton(
-                      splashColor: Colors.transparent,
-                      onPressed: () {
-                        setState(() {
-                          _isCollapsed = !_isCollapsed;
-                        });
-                      },
-                      icon: Icon(
-                        _isCollapsed
-                            ? Icons.arrow_back_ios
-                            : Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        size: 17,
-                      )),
+                    splashColor: Colors.transparent,
+                    onPressed: () {
+                      setState(() {
+                        _isCollapsed = !_isCollapsed;
+                      });
+                    },
+                    icon: Icon(
+                      _isCollapsed
+                          ? Icons.arrow_back_ios
+                          : Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 17,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 )
                 //
                 //
-              ]),
+              ],
+            ),
+          ),
         ),
       ),
-    ));
+    );
   }
 }

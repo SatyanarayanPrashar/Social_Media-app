@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:social_media/constants/Colors.dart';
+
 import 'package:social_media/models/ChatRoomModel.dart';
 import 'package:social_media/models/MessageModel.dart';
 import 'package:social_media/models/UserModel.dart';
@@ -68,9 +68,7 @@ class _Chatroom_PageState extends State<Chatroom_Page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
-        backgroundColor: ColorConstants.dark_widget_Color,
         title: Row(
           children: [
             InkWell(
@@ -85,7 +83,7 @@ class _Chatroom_PageState extends State<Chatroom_Page> {
                 }));
               },
               child: CircleAvatar(
-                backgroundColor: ColorConstants.dark_OnWIdget_Color,
+                backgroundColor: Colors.white,
                 backgroundImage:
                     NetworkImage(widget.targetUser.profilepic.toString()),
               ),
@@ -183,7 +181,7 @@ class _Chatroom_PageState extends State<Chatroom_Page> {
           )),
 //
           Container(
-            color: ColorConstants.dark_widget_Color,
+            color: Colors.grey,
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Row(
               children: [

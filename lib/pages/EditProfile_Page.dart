@@ -8,9 +8,6 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/pages/Home_Page.dart';
-
-import '../constants/Colors.dart';
-
 import '../models/UserModel.dart';
 
 class EditProfile_Page extends StatefulWidget {
@@ -152,10 +149,8 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: ColorConstants.dark_widget_Color,
         title: const Text("Profile"),
       ),
       body: SafeArea(
@@ -181,7 +176,7 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
 
                   Container(
                     margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                    color: ColorConstants.dark_widget_Color,
+                    // color: ColorConstants.dark_widget_Color,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                     child: Flexible(
@@ -199,7 +194,7 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 18, top: 18, right: 18),
-                    color: ColorConstants.dark_widget_Color,
+                    // color: ColorConstants.dark_widget_Color,
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                     child: Flexible(
                         child: TextField(
@@ -225,17 +220,15 @@ class _EditProfile_PageState extends State<EditProfile_Page> {
                       height: 45,
                       width: size.width,
                       decoration: BoxDecoration(
-                          color: ColorConstants.dark_OnWIdget_Color
-                              .withOpacity(0.4),
+                          // color: ColorConstants.dark_OnWIdget_Color
+                          //     .withOpacity(0.4),
                           borderRadius: const BorderRadius.all(
-                            Radius.circular(20),
-                          )),
+                        Radius.circular(20),
+                      )),
                       child: Center(
                           child: Text(
                         "Save Changes",
-                        style: TextStyle(
-                            color: ColorConstants.dark_Text_Color,
-                            fontSize: 17),
+                        style: TextStyle(fontSize: 17),
                       )),
                     ),
                   ),

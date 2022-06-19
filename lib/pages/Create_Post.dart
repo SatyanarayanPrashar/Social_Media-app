@@ -1,13 +1,11 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:social_media/constants/Colors.dart';
 import 'package:social_media/main.dart';
 import 'package:social_media/models/PostModel.dart';
 import 'package:social_media/models/UIHelper.dart';
@@ -155,20 +153,19 @@ class _Create_PostState extends State<Create_Post> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: ColorConstants.dark_BG_Color,
         appBar: AppBar(
-          backgroundColor: ColorConstants.dark_widget_Color,
           title: Text(
             "Post",
-            style:
-                TextStyle(fontSize: 20, color: ColorConstants.dark_Text_Color),
+            style: TextStyle(
+              fontSize: 20,
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
             checkValues();
           },
-          backgroundColor: ColorConstants.dark_OnWIdget_Color,
+          // backgroundColor:,
           icon: Icon(Icons.done),
           label: Text("done"),
         ),
@@ -178,7 +175,6 @@ class _Create_PostState extends State<Create_Post> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                  color: ColorConstants.dark_widget_Color,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   width: size.width,
@@ -192,13 +188,13 @@ class _Create_PostState extends State<Create_Post> {
                           },
                           icon: const Icon(
                             Icons.add_a_photo,
-                            color: Colors.white,
+                            color: Colors.grey,
                           )),
                       Container(
                         height: 225,
                         width: 225,
                         decoration: BoxDecoration(
-                          color: ColorConstants.dark_widget_Color,
+                          color: Colors.grey.withOpacity(0.4),
                         ),
                         child: (imageFile == null)
                             ? const Icon(
@@ -212,17 +208,16 @@ class _Create_PostState extends State<Create_Post> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                  color: ColorConstants.dark_widget_Color,
+                  color: Colors.grey.withOpacity(0.4),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   child: Flexible(
                       child: TextField(
                     controller: captionController,
-                    style: const TextStyle(color: Colors.white),
                     maxLines: null,
                     decoration: const InputDecoration(
                       hintText: "Caption",
-                      hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                      hintStyle: TextStyle(fontSize: 14.0),
                       border: InputBorder.none,
                     ),
                   )),

@@ -1,12 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:social_media/models/UIHelper.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/pages/Login_Page.dart';
 import 'package:social_media/pages/Profile_Page.dart';
-
-import '../constants/Colors.dart';
 
 class Drawer_bottom_profile extends StatefulWidget {
   final bool isCollapsed;
@@ -26,21 +22,21 @@ class Drawer_bottom_profile extends StatefulWidget {
 class _Drawer_bottom_profileState extends State<Drawer_bottom_profile> {
   void confirmLogout(BuildContext context) {
     AlertDialog alertDialog = AlertDialog(
-      backgroundColor: ColorConstants.dark_OnWIdget_Color,
+      // backgroundColor: ColorConstants.dark_OnWIdget_Color,
       title: Text(
         "Log Out",
-        style: TextStyle(color: Colors.white),
       ),
-      content: Text("Are you sure?", style: TextStyle(color: Colors.white)),
+      content: Text("Are you sure?"),
       actions: [
         TextButton(
-            onPressed: () {
-              // Navigator.popUntil(context, (route) => route.isFirst);
-              // Navigator.pushReplacement(context,
-              //     MaterialPageRoute(builder: (context) => Login_page()));
-              logOut();
-            },
-            child: Text("Yes", style: TextStyle(color: Colors.white)))
+          onPressed: () {
+            // Navigator.popUntil(context, (route) => route.isFirst);
+            // Navigator.pushReplacement(context,
+            //     MaterialPageRoute(builder: (context) => Login_page()));
+            logOut();
+          },
+          child: Text("Yes"),
+        )
       ],
     );
 

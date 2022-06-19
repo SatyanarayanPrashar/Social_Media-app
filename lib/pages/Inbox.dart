@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/pages/Chatroom.dart';
-import '../constants/Colors.dart';
 import '../models/ChatRoomModel.dart';
 import '../models/UserModel.dart';
 import '../models/firebaseHelper.dart';
@@ -24,9 +23,7 @@ class _Messages_pageState extends State<Messages_page> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
-        backgroundColor: ColorConstants.dark_widget_Color,
         title: Text("Messages"),
       ),
       body: SafeArea(

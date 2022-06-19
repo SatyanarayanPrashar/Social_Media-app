@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,10 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:social_media/models/UserModel.dart';
 import 'package:social_media/pages/Others_profille.dart';
 import 'package:social_media/widgets/noResultsFound.dart';
-
-import '../constants/Colors.dart';
-import '../models/ChatRoomModel.dart';
-import '../models/MessageModel.dart';
 
 class Search_Page extends StatefulWidget {
   final UserModel userModel;
@@ -34,9 +28,7 @@ class _Search_PageState extends State<Search_Page> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorConstants.dark_BG_Color,
       appBar: AppBar(
-        backgroundColor: ColorConstants.dark_widget_Color,
         actions: [
           Row(
             children: [
@@ -45,20 +37,19 @@ class _Search_PageState extends State<Search_Page> {
                 margin: const EdgeInsets.only(left: 4, top: 4, bottom: 4),
                 width: size.width * 0.7,
                 decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    border: Border.all(color: Colors.white.withOpacity(0.3)),
-                    color: ColorConstants.dark_OnWIdget_Color.withOpacity(0.5)),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  border: Border.all(color: Colors.black.withOpacity(0.3)),
+                  color: Colors.grey.withOpacity(0.5),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: TextField(
                     controller: searchController,
-                    style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: "Search",
-                        hintStyle:
-                            TextStyle(fontSize: 14.0, color: Colors.white),
-                        fillColor: Colors.white),
+                        hintStyle: TextStyle(fontSize: 14.0),
+                        fillColor: Colors.grey),
                   ),
                 ),
               ),
@@ -66,7 +57,7 @@ class _Search_PageState extends State<Search_Page> {
                 onPressed: () {
                   setState(() {});
                 },
-                child: const Icon(Icons.search, color: Colors.white),
+                child: const Icon(Icons.search),
               )
             ],
           ),
@@ -111,18 +102,16 @@ class _Search_PageState extends State<Search_Page> {
                           }));
                         },
                         leading: CircleAvatar(
-                          backgroundColor: ColorConstants.dark_OnWIdget_Color,
+                          backgroundColor: Colors.grey,
                           backgroundImage: NetworkImage(searchedUser.username!),
                         ),
                         title: Text(
                           searchedUser.username!,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 17),
+                          style: const TextStyle(fontSize: 17),
                         ),
                         subtitle: Text(
                           searchedUser.email!,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 12),
+                          style: const TextStyle(fontSize: 12),
                         ),
                       );
                     } else {
