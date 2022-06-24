@@ -153,78 +153,79 @@ class _Create_PostState extends State<Create_Post> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Post",
-            style: TextStyle(
-              fontSize: 20,
-            ),
+      appBar: AppBar(
+        title: Text(
+          "Post",
+          style: TextStyle(
+            fontSize: 20,
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            checkValues();
-          },
-          // backgroundColor:,
-          icon: Icon(Icons.done),
-          label: Text("done"),
-        ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                  width: size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          splashRadius: 1,
-                          onPressed: () {
-                            showPhotoOptions();
-                          },
-                          icon: const Icon(
-                            Icons.add_a_photo,
-                            color: Colors.grey,
-                          )),
-                      Container(
-                        height: 225,
-                        width: 225,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.4),
-                        ),
-                        child: (imageFile == null)
-                            ? const Icon(
-                                Icons.person,
-                                size: 60,
-                              )
-                            : Image(image: FileImage(imageFile!)),
-                      )
-                    ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          checkValues();
+        },
+        // backgroundColor:,
+        icon: Icon(Icons.done),
+        label: Text("done"),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                width: size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                        splashRadius: 1,
+                        onPressed: () {
+                          showPhotoOptions();
+                        },
+                        icon: const Icon(
+                          Icons.add_a_photo,
+                          color: Colors.grey,
+                        )),
+                    Container(
+                      height: 225,
+                      width: 225,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.4),
+                      ),
+                      child: (imageFile == null)
+                          ? const Icon(
+                              Icons.person,
+                              size: 60,
+                            )
+                          : Image(image: FileImage(imageFile!)),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
+                color: Colors.grey.withOpacity(0.4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                child: Flexible(
+                    child: TextField(
+                  controller: captionController,
+                  maxLines: null,
+                  decoration: const InputDecoration(
+                    hintText: "Caption",
+                    hintStyle: TextStyle(fontSize: 14.0),
+                    border: InputBorder.none,
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 18, top: 18, right: 18),
-                  color: Colors.grey.withOpacity(0.4),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                  child: Flexible(
-                      child: TextField(
-                    controller: captionController,
-                    maxLines: null,
-                    decoration: const InputDecoration(
-                      hintText: "Caption",
-                      hintStyle: TextStyle(fontSize: 14.0),
-                      border: InputBorder.none,
-                    ),
-                  )),
-                ),
-              ],
-            ),
+                )),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

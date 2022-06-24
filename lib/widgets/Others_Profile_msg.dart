@@ -119,13 +119,18 @@ class _Others_Profile_msgState extends State<Others_Profile_msg> {
 
                 if (chatroomModel != null) {
                   Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Chatroom_Page(
-                        targetUser: widget.searchedUser,
-                        firebaseUser: widget.firebaseUser,
-                        chatroom: chatroomModel,
-                        userModel: widget.userModel);
-                  }));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Chatroom_Page(
+                            targetUser: widget.searchedUser,
+                            firebaseUser: widget.firebaseUser,
+                            chatroom: chatroomModel,
+                            userModel: widget.userModel);
+                      },
+                    ),
+                  );
                 }
               },
               child: Container(
