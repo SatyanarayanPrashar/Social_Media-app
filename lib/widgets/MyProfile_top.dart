@@ -32,8 +32,9 @@ class _MyProfileState extends State<MyProfile> {
                 alignment: Alignment.center,
                 child: CircleAvatar(
                   backgroundColor: Colors.grey,
-                  backgroundImage:
-                      NetworkImage(widget.userModel.profilepic.toString()),
+                  backgroundImage: NetworkImage(
+                    widget.userModel.profilepic.toString(),
+                  ),
                   radius: 50,
                 ),
               ),

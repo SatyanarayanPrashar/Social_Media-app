@@ -86,9 +86,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
 
                 //
-                Divider(
-                    // color: ColorConstants.dark_Text_Color,
-                    ),
+                Divider(),
 
                 //
                 //
@@ -120,11 +118,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                )
-                //
-                //
+                const SizedBox(height: 20),
               ],
             ),
           ),
